@@ -1,0 +1,131 @@
+/* Загальні стилі */
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+}
+
+.content {
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    z-index: 2;
+}
+
+/* Пульсація тексту заголовка при наведенні */
+header h1 {
+    font-size: 3em;
+    margin: 0;
+    color: #e6e6fa;
+    transition: transform 0.3s ease;
+}
+
+header h1:hover {
+    transform: scale(1.1);
+    animation: pulse 1.5s ease infinite alternate;
+}
+
+@keyframes pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.05); }
+}
+
+header p {
+    font-size: 1.2em;
+    color: #ccccff;
+}
+
+/* Збільшення категорій при наведенні */
+.dream-categories {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.category {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    width: 200px;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.category:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Спалахи зірок при кліку */
+.spark {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.8);
+    animation: sparkle 0.6s ease-out;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes sparkle {
+    0% { opacity: 1; transform: scale(0); }
+    100% { opacity: 0; transform: scale(2); }
+}
+
+/* Падаюча зірка */
+.shooting-star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    box-shadow: 0px 0px 6px rgba(255, 255, 255, 0.8);
+    animation: shoot 2s ease-out infinite;
+    z-index: 1;
+}
+
+@keyframes shoot {
+    0% { opacity: 1; transform: translate(-50%, -50%) rotate(45deg) scale(1); }
+    70% { opacity: 1; transform: translate(150px, 150px) rotate(45deg) scale(0.5); }
+    100% { opacity: 0; }
+}
+
+/* Анімація зоряного неба */
+.stars, .twinkling {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 0;
+}
+
+.stars {
+    background: url('https://www.transparenttextures.com/patterns/stellaris.png') repeat;
+    animation: starryBackground 200s linear infinite;
+}
+
+@keyframes starryBackground {
+    from { background-position: 0 0; }
+    to { background-position: -10000px 10000px; }
+}
+
+.twinkling {
+    background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+    animation: twinkling 5s infinite;
+}
+
+@keyframes twinkling {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 0.5; }
+}
